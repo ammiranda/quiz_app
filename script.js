@@ -20,5 +20,5 @@ $(document).ready(function() {
 			$('input').attr('checked',false);
 			$($question.get(currentQuestion)).fadeIn();
 		})};
-	
+
 })});

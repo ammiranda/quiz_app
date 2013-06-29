@@ -61,6 +61,9 @@ body {
 	text-align: center;
 	font-family: Helvetica Neue;
 	}
+#quiz_descr {
+	padding-top: 30px;
+	}
 #quiz_title {
 	font-size: 40px;
 	padding-top: 20px;
