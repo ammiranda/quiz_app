@@ -23,9 +23,11 @@ $(document).ready(function() {
 	
 	$('.restart').click(function(){  //Allows user to restart quiz by clicking Restart button
 		event.preventDefault();
+		$('.pick_answer').fadeOut();
 		if(currentQuestion != 0) {   //Prevents script from firing when user is on question 0
 			$($question.get(currentQuestion)).fadeOut(function(){
 			currentQuestion = 0;
+			$('.pick_answer').hide();
 			$('input').attr('checked',false);
 			$($question.get(currentQuestion)).fadeIn();
 		})};
