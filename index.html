@@ -13,116 +13,137 @@
 	<h1 id="quiz_title">
 		China Quiz
 	</h1>
-	<img src="china_flag_map.png" width="300" height="250">
+	<img id="china_map" src="china_flag_map.png" width="300" height="250">
+	<img style="display:none;" id="huang_di" src="yellow-emperor.jpg" width="300" height="300">	
 	<p id="quiz_descr">
 		Test your knowledge of China (中国)!<br> Answer these questions to the best of your ability.
 	</p>
 	<br>
 	<div id="questions">
-		<form id="question1">
+		<form id="1" class="question">
 			<p class="question_text">What hat color is taboo in China?</p>
 			<br>
 			<label>
-			<input type="radio" name="1" value="Green">
+			<input type="radio" name="1" value="1">
 			Green（绿色）
 			</label>
 			<label>
-			<input type="radio" name="1" value="Yellow">
+			<input type="radio" name="1" value="0">
 			Yellow（黄色）
 			</label>
 			<label>
-			<input type="radio" name="1" value="Red">
+			<input type="radio" name="1" value="0">
 			Red（红色）
 			</label>
 			<label>
-			<input type="radio" name="1" value="Purple">
+			<input type="radio" name="1" value="0">
 			Purple（紫色）
 			</label>
 			<br>
 			<p class="buttons">
-				<button>Restart</button>
-				<button type="submit">Submit</button>
+				<button class="restart">Restart</button>
+				<button type="submit" class="next">Submit</button>
 			</p>
 		</form>
-		<form id="question2" style="display: none;">
+		<form id="2" class="question">
 			<p class="question_text">The Huangpu river runs through which major Chinese city?</p>
 			<br>
 			<label>
-			<input type="radio" name="2" value="Beijing">
+			<input type="radio" name="2" value="0">
 			Beijing (北京）
 			</label>
 			<label>
-			<input type="radio" name="2" value="Chengdu">
+			<input type="radio" name="2" value="0">
 			Chengdu（成都）
 			</label>
 			<label>
-			<input type="radio" name="2" value="Shanghai">
+			<input type="radio" name="2" value="1">
 			Shanghai（上海）
 			</label>
 			<label>
-			<input type="radio" name="2" value="Guangzhou">
+			<input type="radio" name="2" value="0">
 			Guangzhou（广洲）
 			</label>
+			<br>
+			<p class="buttons">
+				<button class="restart">Restart</button>
+				<button type="submit" class="next">Submit</button>
+			</p>
 		</form>	
-		<form id="question3" style="display: none;">
+		<form id="3" class="question">
 			<p class="question_text">What is the currency of the Macau SAR?</p>
 			<br>
 			<label>
-			<input type="radio" name="3" value="Peso">
+			<input type="radio" name="3" value="0">
 			Peso（比索）
 			</label>
 			<label>
-			<input type="radio" name="3" value="Hong Kong Dollar">
+			<input type="radio" name="3" value="0">
 			Hong Kong Dollar（港元）
 			</label>
 			<label>
-			<input type="radio" name="3" value="Pataca">
+			<input type="radio" name="3" value="1">
 			Pataca（澳门元）
 			</label>
 			<label>
-			<input type="radio" name="3" value="Renminbi">
+			<input type="radio" name="3" value="0">
 			Renminbi（人民币）
 			</label>
+			<br>
+			<p class="buttons">
+				<button class="restart">Restart</button>
+				<button type="submit" class="next">Submit</button>
+			</p>
 		</form>
-		<form id="question4" style="display: none;">
+		<form id="4" class="question">
 			<p class="question_text">Which is a famous Shanghainese dish?</p>
 			<br>
 			<label>
-			<input type="radio" name="4" value="Xiao Long Bao">
+			<input type="radio" name="4" value="1">
 			Xiao Long Bao（小龙包）
 			</label>
 			<label>
-			<input type="radio" name="4" value="Man Tou">
+			<input type="radio" name="4" value="0">
 			Man Tou（馒头）
 			</label>
 			<label>
-			<input type="radio" name="4" value="Ma Po Dou Fu">
+			<input type="radio" name="4" value="0">
 			Ma Po Dou Fu（麻婆豆腐）
 			</label>
 			<label>
-			<input type="radio" name="4" value="Ma La Tu Tou">
+			<input type="radio" name="4" value="0">
 			Ma La Tu Tou（麻辣兔头）
 			</label>
+			<br>
+			<p class="buttons">
+				<button class="restart">Restart</button>
+				<button type="submit" class="next">Submit</button>
+			</p>
 		</form>
-		<form id="question5" style="display: none;">
+		<form id="5" class="question">
 			<p class="question_text">Which is a Chinese city famous for winter ice sculptures?</p>
 			<br>
 			<label>
-			<input type="radio" name="5" value="Hong Kong">
+			<input type="radio" name="5" value="0">
 			Hong Kong（香港）
 			</label>
 			<label>
-			<input type="radio" name="5" value="Harbin">
+			<input type="radio" name="5" value="1">
 			Harbin（哈尔滨）
 			</label>
 			<label>
-			<input type="radio" name="5" value="Beijing">
+			<input type="radio" name="5" value="0">
 			Beijing（北京）
 			</label>
 			<label>
-			<input type="radio" name="5" value="Lhasa">
+			<input type="radio" name="5" value="0">
 			Lhasa（拉萨）
 			</label>
+			<br>
+			<p class="buttons">
+				<button class="restart">Restart</button>
+				<button type="submit" class="next">Submit</button>
+			</p>
 		</form>
 	</div>
 	
