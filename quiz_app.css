@@ -56,7 +56,7 @@ body {
 #container {
 	height: auto;
 	}
-#quiz_title, #quiz_descr, #questions {
+#quiz_title, #quiz_descr, #questions, #scores {
 	color: #FADA5E;
 	text-align: center;
 	font-family: Helvetica Neue;

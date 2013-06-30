@@ -14,10 +14,11 @@
 		China Quiz
 	</h1>
 	<img id="china_map" src="china_flag_map.png" width="300" height="250">
-	<img  id="huang_di" style="display:none;" src="yellow-emperor.jpg" width="300" height="330">	
+	<img  id="huang_di" src="yellow-emperor.jpg" width="300" height="330">	
 	<p id="quiz_descr">
 		Test your knowledge of China (中国)!<br> Answer these questions to the best of your ability.
 	</p>
+	<p id="scores"></p>
 	<br>
 	<div id="questions">
 		<form id="1" class="question">
@@ -26,7 +27,7 @@
 			<p class="pick_answer">Please select an answer!</p>
 			<br class="pick_answer">
 			<label>
-			<input type="radio" name="1" value="1">
+			<input type="radio" name="1" value="1" class="correct_a">
 			Green（绿色）
 			</label>
 			<label>
@@ -61,7 +62,7 @@
 			Chengdu（成都）
 			</label>
 			<label>
-			<input type="radio" name="2" value="1">
+			<input type="radio" name="2" value="1" class="correct_a">
 			Shanghai（上海）
 			</label>
 			<label>
@@ -88,7 +89,7 @@
 			Anhui（安徽）
 			</label>
 			<label>
-			<input type="radio" name="3" value="1">
+			<input type="radio" name="3" value="1" class="correct_a">
 			Sichuan (四川）
 			</label>
 			<label>
@@ -107,7 +108,7 @@
 			<p class="pick_answer">Please select an answer!</p>
 			<br class="pick_answer">
 			<label>
-			<input type="radio" name="4" value="1">
+			<input type="radio" name="4" value="1" class="correct_a">
 			Xiao Long Bao（小龙包）
 			</label>
 			<label>
@@ -138,7 +139,7 @@
 			Hong Kong（香港）
 			</label>
 			<label>
-			<input type="radio" name="5" value="1">
+			<input type="radio" name="5" value="1" class="correct_a">
 			Harbin（哈尔滨）
 			</label>
 			<label>
