@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$('input').attr('checked',false);
+	$('input').attr('checked',false);  //Removes cached answers from previous page load
 	var totalQuestions = $('.question').size();
 	var totalQuestionsc = $('.question').size() - 1;
 	var currentQuestion = 0;
@@ -11,7 +11,7 @@ $(document).ready(function() {
 		$('#scores').text('Your current score is: ' + correct + ' out of ' + totalQuestionsc + '.');
 		};
 	
-	function Restart() {
+	function Restart() { //Resets quiz to questions 1, called by clicking restart button and on page load
 	event.preventDefault();
 	$('.question').hide();
 	$('.pick_answer').hide();
@@ -39,7 +39,7 @@ $(document).ready(function() {
 		$('#scores').text('Your final score is: ' + correct + ' out of ' + totalQuestionsc + '.');
 		};
 		
-	function ultimateWin(correct) {
+	function ultimateWin(correct) { //Runs when user gets all 5 questions correct
 		$('#questions').append('<p class="victory">Gong xi Gong xi (恭喜恭喜)!<br>You are the Huang Di（黄帝)!</p><p class="buttons"><button class="replay">Restart</button></p>');
 		$('#quiz_descr').fadeOut();
 		$('#china_map').fadeOut();
@@ -49,7 +49,7 @@ $(document).ready(function() {
 		Replaybutton();
 		};
 			
-	function midWin (correct) {
+	function midWin (correct) { //Runs when user gets 3 or 4 questions correct
 		$('#questions').append('<p class="victory">Not Bad (不错)!<br>Please try again!</p><p class="buttons"><button class="replay">Restart</button></p>');
 		$('#quiz_descr').fadeOut();
 		$('#scores').empty();
@@ -57,7 +57,7 @@ $(document).ready(function() {
 		Replaybutton();
 		};
 	
-	function loseWin (correct) {
+	function loseWin (correct) { //Runs when user gets fewer than 3 correct
 		$('#questions').append('<p class="victory">Study harder!<br>Then try again!</p><p class="buttons"><button class="replay">Restart</button></p>');
 		$('#quiz_descr').fadeOut();
 		$('#scores').empty();
@@ -68,15 +68,16 @@ $(document).ready(function() {
 	Restart();
 	
 	$('.restart').click(function(currentQuestion) {
-		if (currentQuestion != 0) {
+		if (currentQuestion != 0) { //Prevents script from firing when user is on first question
 			Restart();
 			}});
 			
 	$('.next').click(function() {
-		if ($('input:checked').length > currentQuestion) {
+		if ($('input:checked').length > currentQuestion) { //Prevents question progression without user selecting a response
 			event.preventDefault();
 			correctCounter(correct);
 			console.log(currentQuestion);
+			$('.pick_answer').hide();
 			if ($('.correct_a:checked').length > correct) {
 				correct += 1
 				correctCounter(correct);
@@ -98,4 +99,9 @@ $(document).ready(function() {
 						}
 						}})
 					
-			}})});
+			}
+		  else {
+		  	 event.preventDefault();
+		  	 $('.pick_answer').show(); //Prompts user to select an answer before progressing
+		  	 }
+			})});
