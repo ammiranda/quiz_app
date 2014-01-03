@@ -1,13 +1,5 @@
-$(document).ready(function() {
-	$('input').attr('checked',false);  //Removes cached answers from previous page load
-	var totalQuestions = $('.question').size();
-	var totalQuestionsc = $('.question').size() - 1;
-	var currentQuestion = 0;
-	var correct = 0;
-	$question = $('.question');
-	$pick_answer = $('.pick_answer');
-	
-	function correctCounter(correct) {
+function correctCounter(correct, totalQuestionsc) {
+		var totalQuestionsc = $('.question').size() - 1;
 		$('#scores').text('Your current score is: ' + correct + ' out of ' + totalQuestionsc + '.');
 		};
 	
@@ -64,6 +56,16 @@ $(document).ready(function() {
 		finalScore(correct);
 		Replaybutton();
 		};
+
+
+$(document).ready(function() {
+	$('input').attr('checked',false);  //Removes cached answers from previous page load
+	var totalQuestions = $('.question').size();
+	var totalQuestionsc = $('.question').size() - 1;
+	var currentQuestion = 0;
+	var correct = 0;
+	$question = $('.question');
+	$pick_answer = $('.pick_answer');
 		
 	Restart();
 	
@@ -79,7 +81,7 @@ $(document).ready(function() {
 			console.log(currentQuestion);
 			$('.pick_answer').hide();
 			if ($('.correct_a:checked').length > correct) {
-				correct += 1
+				correct += 1;
 				correctCounter(correct);
 				console.log(correct);
 				}
