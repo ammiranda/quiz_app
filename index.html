@@ -10,11 +10,11 @@
 	<h1 id="quiz_title">
 		China Quiz
 	</h1>
-	<img id="china_map" src="china_flag_map.png" width="300" height="250">
-	<img  id="huang_di" src="yellow-emperor.jpg" width="300" height="330">	
 	<p id="quiz_descr">
 		Test your knowledge of China (中国)!<br> Answer these questions to the best of your ability.
 	</p>
+	<img id="china_map" src="china_flag_map.png" width="300" height="250">
+	<img  id="huang_di" src="yellow-emperor.jpg" width="300" height="330">	
 	<p id="scores"></p>
 	<br>
 	<div id="questions">
@@ -22,16 +22,20 @@
 
 			{{#each this}}
 
-			<form id="{{{this._id}}}" class="question">
-			<p class="question_text">{{qtext}}</p>
-			<p class="pick_answer">Please select an answer!</p>
-			{{#each answers}}
-			<label>
-			<input type="radio" name='"' + {{_id}} + '"'>
-			{{.}}
-			</label>
-			{{/each}}
-			</form>
+				<form id="{{{this._id}}}" class="question">
+				<p class="question_text">{{qtext}}</p>
+				<p class="pick_answer">Please select an answer!</p>
+				<ul>
+				{{#each answers}}
+					<li>
+						<label>
+						<input type="radio" name='"' + {{_id}} + '"'>
+						{{.}}
+						</label>
+					</li>
+				{{/each}}
+				</ul>
+				</form>
 			{{/each}}
 			<p class="buttons">
 				<button class="restart">Restart</button>

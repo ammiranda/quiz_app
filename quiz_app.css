@@ -93,3 +93,6 @@ label {
 .pick_answer {
 	color: black;
 	}
+.question_text {
+	margin-bottom: 5px;
+}
