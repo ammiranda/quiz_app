@@ -22,7 +22,7 @@
 
 			{{#each this}}
 
-			<form id='"' + {{_id}} + '"' class="question">
+			<form id='"' + {{this._id}} + '"' class="question">
 			<p class="question_text">{{qtext}}</p>
 			<p class="pick_answer">Please select an answer!</p>
 			{{#each answers}}
@@ -31,7 +31,7 @@
 			{{.}}
 			</label>
 			{{/each}}
-
+			</form>
 			{{/each}}
 			<p class="buttons">
 				<button class="restart">Restart</button>
