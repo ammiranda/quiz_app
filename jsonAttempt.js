@@ -6,3 +6,6 @@ var questions = [
 	{id: 5, qtext: "Which is a Chinese city famous for winter ice sculptures?", answers: ["Hong Kong（香港)", "Harbin（哈尔滨)", "Beijing（北京)", "Fuzhou（福州)"], solution: "Harbin（哈尔滨)"}
 ];
 
+
+
+

@@ -3,10 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="quiz_app.css" type="text/css">
 <link rel="shortcut icon" href="http://www.themaninchina.com/images/chinese_characters/graphic%20zhong%20stroke%204.gif">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.2.1/handlebars.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<script type="text/javascript" src="script2.js"></script>
 <title>China Quiz!</title>
 </head>
 <body>
@@ -22,144 +18,44 @@
 	<p id="scores"></p>
 	<br>
 	<div id="questions">
-		<form id="1" class="question">
-			<p class="question_text">What hat color is taboo in China?</p>
-			<br>
+		<script id="template" type="text/x-handlebars-template">
+
+			{{#each this}}
+
+			<form id='"' + {{_id}} + '"' class="question">
+			<p class="question_text">{{qtext}}</p>
 			<p class="pick_answer">Please select an answer!</p>
-			<br class="pick_answer">
 			<label>
-			<input type="radio" name="1" value="1" class="correct_a">
-			Green（绿色）
+			<input type="radio" name='"' + {{_id}} + '"'>
 			</label>
-			<label>
-			<input type="radio" name="1" value="0">
-			Yellow（黄色）
-			</label>
-			<label>
-			<input type="radio" name="1" value="0">
-			Red（红色）
-			</label>
-			<label>
-			<input type="radio" name="1" value="0">
-			Purple（紫色）
-			</label>
-			<br>
+
+			{{/each}}
 			<p class="buttons">
 				<button class="restart">Restart</button>
 				<button type="submit" class="next">Submit</button>
 			</p>
-		</form>
-		<form id="2" class="question">
-			<p class="question_text">The Huangpu (黄浦）river runs through which major Chinese city?</p>
-			<br>
-			<p class="pick_answer">Please select an answer!</p>
-			<br class="pick_answer">
-			<label>
-			<input type="radio" name="2" value="0">
-			Beijing (北京）
-			</label>
-			<label>
-			<input type="radio" name="2" value="0">
-			Chengdu（成都）
-			</label>
-			<label>
-			<input type="radio" name="2" value="1" class="correct_a">
-			Shanghai（上海）
-			</label>
-			<label>
-			<input type="radio" name="2" value="0">
-			Guangzhou（广洲）
-			</label>
-			<br>
-			<p class="buttons">
-				<button class="restart">Restart</button>
-				<button type="submit" class="next">Submit</button>
-			</p>
-		</form>	
-		<form id="3" class="question">
-			<p class="question_text">The Giant Panda's current natural habitat is found mainly in which province?</p>
-			<br>
-			<p class="pick_answer">Please select an answer!</p>
-			<br class="pick_answer">
-			<label>
-			<input type="radio" name="3" value="0">
-			Fujian (福建）
-			</label>
-			<label>
-			<input type="radio" name="3" value="0">
-			Anhui（安徽）
-			</label>
-			<label>
-			<input type="radio" name="3" value="1" class="correct_a">
-			Sichuan (四川）
-			</label>
-			<label>
-			<input type="radio" name="3" value="0">
-			Hunan（湖南）
-			</label>
-			<br>
-			<p class="buttons">
-				<button class="restart">Restart</button>
-				<button type="submit" class="next">Submit</button>
-			</p>
-		</form>
-		<form id="4" class="question">
-			<p class="question_text">Which is a famous Shanghainese dish?</p>
-			<br>
-			<p class="pick_answer">Please select an answer!</p>
-			<br class="pick_answer">
-			<label>
-			<input type="radio" name="4" value="1" class="correct_a">
-			Xiao Long Bao（小龙包）
-			</label>
-			<label>
-			<input type="radio" name="4" value="0">
-			Man Tou（馒头）
-			</label>
-			<label>
-			<input type="radio" name="4" value="0">
-			Ma Po Dou Fu（麻婆豆腐）
-			</label>
-			<label>
-			<input type="radio" name="4" value="0">
-			Ma La Tu Tou（麻辣兔头）
-			</label>
-			<br>
-			<p class="buttons">
-				<button class="restart">Restart</button>
-				<button type="submit" class="next">Submit</button>
-			</p>
-		</form>
-		<form id="5" class="question">
-			<p class="question_text">Which is a Chinese city famous for winter ice sculptures?</p>
-			<br>
-			<p class="pick_answer">Please select an answer!</p>
-			<br class="pick_answer">
-			<label>
-			<input type="radio" name="5" value="0">
-			Hong Kong（香港）
-			</label>
-			<label>
-			<input type="radio" name="5" value="1" class="correct_a">
-			Harbin（哈尔滨）
-			</label>
-			<label>
-			<input type="radio" name="5" value="0">
-			Beijing（北京）
-			</label>
-			<label>
-			<input type="radio" name="5" value="0">
-			Fuzhou（福州）
-			</label>
-			<br>
-			<p class="buttons">
-				<button class="restart">Restart</button>
-				<button type="submit" class="next">Submit</button>
-			</p>
-		</form>
-		<form id="6" class="question"></form>
+		</script>
 	</div>
-	
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.2.1/handlebars.min.js"></script>
+	<script type="text/javascript" src="script2.js"></script>
+	<script>
+		(function() {
+			var data = [
+					{_id: 1, qtext: "What hat color is taboo in China?", answers: ["Green（绿色)", "Yellow（黄色)", "Red（红色", "Purple（紫色"], solution: "Green（绿色)"},
+					{_id: 2, qtext: "The Huangpu (黄浦）river runs through which major Chinese city?", answers: ["Beijing (北京)", "Chengdu（成都)", "Shanghai（上海)", "Guangzhou（广洲)"], solution: "Shanghai（上海)"},
+					{_id: 3, qtext: "The Giant Panda's current natural habitat is found mainly in which province?", answers: ["Fujian (福建)", "Anhui（安徽)", "Sichuan (四川)", "Hunan（湖南)"], solution: "Sichuan (四川)"},
+					{_id: 4, qtext: "Which is a famous Shanghainese dish?", answers: ["Xiao Long Bao（小龙包)", "Man Tou（馒头)", "Ma Po Dou Fu（麻婆豆腐)", "Ma La Tu Tou（麻辣兔头)"], solution: "Xiao Long Bao（小龙包)"},
+					{_id: 5, qtext: "Which is a Chinese city famous for winter ice sculptures?", answers: ["Hong Kong（香港)", "Harbin（哈尔滨)", "Beijing（北京)", "Fuzhou（福州)"], solution: "Harbin（哈尔滨)"}
+					];
+
+			var template = Handlebars.compile( $('#template').html() );
+
+			console.log(template(data));
+
+			$('#questions').append( template(data) );
+		})();
+	</script>
 </body>
 </html>
