@@ -1,5 +1,5 @@
 function correctCounter(correct, totalQuestionsc) {
-		var totalQuestionsc = $('.question').size() - 1;
+		var totalQuestionsc = $('.question').size();
 		$('#scores').text('Your current score is: ' + correct + ' out of ' + totalQuestionsc + '.');
 		};
 	

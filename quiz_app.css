@@ -50,7 +50,7 @@ table {
 /* End of Reset */
 
 table {
-	margin: 0 auto;
+	margin: 0 auto; 
 }
 
 td {
@@ -103,4 +103,17 @@ label {
 	}
 .question_text {
 	margin-bottom: 5px;
+}
+button {
+	background-color: #AA381E;
+	color: #FADA5E;
+	border: 1px solid #AA381E;
+}
+
+button:hover {
+	background-color: #ff3434;
+}
+
+.buttons {
+	margin-top: 10px;
 }
