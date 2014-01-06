@@ -76,11 +76,13 @@ $(document).ready(function() {
 			
 	$('.next').click(function() {
 		if ($('input:checked').length > currentQuestion) { //Prevents question progression without user selecting a response
+			console.log($('input:checked'));
 			event.preventDefault();
 			correctCounter(correct);
 			console.log(currentQuestion);
 			$('.pick_answer').hide();
-			if ($('.correct_a:checked').length > correct) {
+			console.log(data[parseInt($('form').attr('id'))].solution);
+			if ($('input:checked').value == data[parseInt($('form').attr('id')) - 1].solution) {
 				correct += 1;
 				correctCounter(correct);
 				console.log(correct);
