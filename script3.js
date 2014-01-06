@@ -8,24 +8,38 @@ var template = Handlebars.compile(source);
 
 $(document).ready(function() {
 	var correct = 0;
+	var counter = 0;
+	var solutions = [];
 	var answers = [];
 	correctCounter(correct);
-	for (var i = 1; i < data.length; i++) {
+	for (var i = 0; i < data.length; i++) {
 		$('#' + i).hide();
-		answers.push(data[i - 1].solution);
+		solutions.push(data[i].solution);
 		}
+	$('#' + counter).show();
 	console.log(answers);
 
 	$('.next').on('click', function(e) {
-		var checkedAnswer = $('input:checked').val();
 		e.preventDefault();
-		if (answers.indexOf(checkedAnswer) > -1) {
+		if (answers == []) {
+			answers.push($('input:checked').val());
+		}
+		else {
+		answers.push($('input:checked').val().next());
+		}
+		console.log(counter);
+		console.log(answers);
+		if (solutions[counter] == answers[counter]) {
 			correct += 1;
 			console.log("correct added");
 		}
 		correctCounter(correct);
-		$('#container').append($('#ultimateWin'));
+		if (correct == data.length && counter == data.length){
+			$('#container').append(template());
+		}
 		console.log("It worked!");
+		counter++;
+		$('#' + counter).show().siblings('form').hide();
 	})
 
 	
