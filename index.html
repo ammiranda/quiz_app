@@ -26,16 +26,18 @@
 				<form id="{{{this._id}}}" class="question">
 				<p class="question_text">{{qtext}}</p>
 				<p class="pick_answer">Please select an answer!</p>
-				<ul>
+				<table>
 				{{#each answers}}
-					<li>
+					<tr>
+					<td>
 						<label>
 						<input type="radio" name='"' + {{_id}} + '"' value="{{{.}}}">
 						{{.}}
 						</label>
-					</li>
+					</td>
+					</tr>
 				{{/each}}
-				</ul>
+				</table>
 				</form>
 			{{/each}}
 			<p class="buttons">

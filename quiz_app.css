@@ -49,6 +49,14 @@ table {
 
 /* End of Reset */
 
+table {
+	margin: 0 auto;
+}
+
+td {
+	float: left;
+}
+
 body {
 	background-color: #AA381E;
 	height: 100%;
