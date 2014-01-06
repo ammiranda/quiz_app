@@ -11,7 +11,7 @@ function correctCounter(correct, totalQuestionsc) {
 	$('.replay').fadeOut();
 	$('#china_map').fadeIn();
 	$('#quiz_descr').fadeIn();
-	$('#1').fadeIn();
+	$('#0').fadeIn();
 	$('input').attr('checked', false);
 	currentQuestion = 0;
 	correct = 0;
@@ -82,7 +82,7 @@ $(document).ready(function() {
 			console.log(currentQuestion);
 			$('.pick_answer').hide();
 			console.log(data[parseInt($('form').attr('id'))].solution);
-			if ($('input:checked').value == data[parseInt($('form').attr('id')) - 1].solution) {
+			if ($('input:checked').val() == data[parseInt($('form').attr('id'))].solution) {
 				correct += 1;
 				correctCounter(correct);
 				console.log(correct);

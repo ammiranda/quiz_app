@@ -8,18 +8,19 @@
 </head>
 <body>
 <div id="container">
-	<h1 id="quiz_title">
-		China Quiz
-	</h1>
-	<p id="quiz_descr">
-		Test your knowledge of China (中国)!<br> Answer these questions to the best of your ability.
-	</p>
-	<img id="china_map" src="china_flag_map.png" width="300" height="250">
-	<img  id="huang_di" src="yellow-emperor.jpg" width="300" height="330">	
-	<p id="scores"></p>
-	<br>
-	<div id="questions">
-		<script id="template" type="text/x-handlebars-template">
+	<script id="questions-template" type="text/x-handlebars-template">
+		<h1 id="quiz_title">
+			China Quiz
+		</h1>
+		<p id="quiz_descr">
+			Test your knowledge of China (中国)!<br> Answer these questions to the best of your ability.
+		</p>
+		<img id="china_map" src="china_flag_map.png" width="300" height="250">
+		<img  id="huang_di" src="yellow-emperor.jpg" width="300" height="330">	
+		<p id="scores"></p>
+		<br>
+		<div id="questions">
+		
 
 			{{#each this}}
 
@@ -45,6 +46,13 @@
 				<button type="submit" class="next">Submit</button>
 			</p>
 		</script>
+		<script id="ultimateWin" type="text/x-handlebars-template">
+			<img  id="huang_di" src="yellow-emperor.jpg" width="300" height="330">
+
+
+
+		</script>
+
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
@@ -62,11 +70,11 @@
 					{_id: 4, qtext: "Which is a Chinese city famous for winter ice sculptures?", answers: ["Hong Kong（香港)", "Harbin（哈尔滨)", "Beijing（北京)", "Fuzhou（福州)"], solution: "Harbin（哈尔滨)"}
 					];
 
-			var template = Handlebars.compile( $('#template').html() );
+			var template = Handlebars.compile( $('#questions-template').html() );
 
 			console.log(template(data));
 
-			$('#questions').append( template(data) );
+			$('#container').append( template(data) );
 			return data;
 		})();
 	</script>
