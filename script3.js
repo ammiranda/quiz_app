@@ -12,11 +12,11 @@ $(document).ready(function() {
 	var solutions = [];
 	var answers = [];
 	correctCounter(correct);
-	console.log($('input').closest('form'));
+	console.log($('input:visible').closest('form'));
 	for (var i = 0; i < data.length; i++) {
 		$('#' + i).hide();
 		solutions.push(data[i].solution);
-		if ($('input').closest('form').attr('id') == i) {
+		if ($('input').closest('form') == data[i].answers) {
 			$('input').attr('id', i);
 			}
 		}
@@ -28,7 +28,7 @@ $(document).ready(function() {
 		console.log(this);
 		var questionNumber = $(this).closest('form').attr('id');
 		console.log(questionNumber);
-		console.log($('input:checked').val());
+		console.log($('input:checked').closest('form').attr('id'));
 		answers.push($('input:checked').val());
 		console.log(counter);
 		console.log(answers);
