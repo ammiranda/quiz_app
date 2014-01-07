@@ -4,7 +4,7 @@ function correctCounter(correct) {
 };
 
 var source = $('#ultimateWin').html();
-var template = Handlebars.compile(source);
+var ult_template = Handlebars.compile(source);
 
 $(document).ready(function() {
 	var correct = 0;
@@ -25,23 +25,22 @@ $(document).ready(function() {
 
 	$('.next').on('click', function(e) {
 		e.preventDefault();
-		console.log(this);
+
 		var questionNumber = $(this).closest('form').attr('id');
 		var userAnswer = $('input[name=' + questionNumber + ']:radio:checked').val();
-		console.log(questionNumber);
-		console.log(userAnswer);
-		console.log($('input:checked').closest('form').attr('id'));
-		console.log(counter);
-		console.log(answers);
+
 		if (userAnswer == solutions[counter]) {
 			correct += 1;
-			console.log("correct added");
 		}
+		console.log(correct);
+		console.log(counter);
+
 		correctCounter(correct);
 		if (counter == data.length - 1) {
-			var percentCorrect = Math.ceil( (correct / counter) * 100);
+			var percentCorrect = Math.ceil( (correct / (counter + 1)) * 100);
 			if (percentCorrect >= 100){
-				$('#container').append(template());
+				$('#container').empty();
+				$('#container').append(ult_template());
 			}
 			else if (percentCorrect < 100 && percentCorrect >= 80) {
 				alert("not bad");
@@ -53,7 +52,6 @@ $(document).ready(function() {
 				alert("study more!");
 			}
 		}
-		console.log("It worked!");
 		counter++;
 		$('#' + counter).show().siblings('form').hide();
 	})
