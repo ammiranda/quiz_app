@@ -31,19 +31,19 @@
 					<tr>
 					<td>
 						<label>
-						<input type="radio" name='"' + {{_id}} + '"' value="{{{.}}}">
+						<input type="radio" name="{{{_id}}}" value="{{{.}}}">
 						{{.}}
 						</label>
 					</td>
 					</tr>
 				{{/each}}
 				</table>
-				</form>
-			{{/each}}
-			<p class="buttons">
+				<p class="buttons">
 				<button class="restart">Restart</button>
 				<button type="submit" class="next">Submit</button>
-			</p>
+				</p>
+				</form>
+			{{/each}}
 		</script>
 		<script id="ultimateWin" type="text/x-handlebars-template">
 			<img  id="huang_di" src="yellow-emperor.jpg" width="300" height="330">

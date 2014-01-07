@@ -12,15 +12,22 @@ $(document).ready(function() {
 	var solutions = [];
 	var answers = [];
 	correctCounter(correct);
+	console.log($('input').closest('form'));
 	for (var i = 0; i < data.length; i++) {
 		$('#' + i).hide();
 		solutions.push(data[i].solution);
+		if ($('input').closest('form').attr('id') == i) {
+			$('input').attr('id', i);
+			}
 		}
 	$('#' + counter).show();
 	console.log(answers);
 
 	$('.next').on('click', function(e) {
 		e.preventDefault();
+		console.log(this);
+		var questionNumber = $(this).closest('form').attr('id');
+		console.log(questionNumber);
 		console.log($('input:checked').val());
 		answers.push($('input:checked').val());
 		console.log(counter);
@@ -38,7 +45,7 @@ $(document).ready(function() {
 			else if (percentCorrect < 100 && percentCorrect >= 80) {
 				alert("not bad");
 			}
-			else if (percentCorrect < 80 && percentCorrect >= 40) {
+			else if (percentCorrect < 80 && percentCorrect >= 60) {
 				alert("meh");
 			}
 			else {
