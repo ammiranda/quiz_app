@@ -1,1 +1,1 @@
-I created a quiz on Chinese culture that is powered by jQuery and HandlebarsJS!  Enjoy and please don't cheat!
+I created a quiz on Chinese culture that is powered by [jQuery](http://jquery.com/) and [HandlebarsJS](http://handlebarsjs.com/)!  Enjoy and please don't cheat!
