@@ -3,8 +3,8 @@ function correctCounter(correct) {
 	$('#scores').text('Your current score is: ' + correct + ' out of ' + totalQuestions + '.');
 };
 
-var source = $('#ultimateWin').html();
-var ult_template = Handlebars.compile(source);
+var ult_source = $('#ultimateWin').html();
+var ult_template = Handlebars.compile(ult_source);
 
 $(document).ready(function() {
 	var correct = 0;
@@ -38,8 +38,8 @@ $(document).ready(function() {
 		correctCounter(correct);
 		if (counter == data.length - 1) {
 			var percentCorrect = Math.ceil( (correct / (counter + 1)) * 100);
+			$('#container').empty();
 			if (percentCorrect >= 100){
-				$('#container').empty();
 				$('#container').append(ult_template());
 			}
 			else if (percentCorrect < 100 && percentCorrect >= 80) {

@@ -39,14 +39,24 @@
 				{{/each}}
 				</table>
 				<p class="buttons">
-				<button class="restart">Restart</button>
-				<button type="submit" class="next">Submit</button>
+					<button class="restart">Restart</button>
+					<button type="submit" class="next">Submit</button>
 				</p>
 				</form>
 			{{/each}}
 		</script>
 		<script id="ultimateWin" type="text/x-handlebars-template">
-			<img  id="huang_di" src="yellow-emperor.jpg" width="300" height="330">
+			<h1 id="quiz_title">
+				You are the Huang Di! Gong xi Gong xi! (恭喜恭喜)
+			</h1>
+			<img  id="china_map" src="yellow-emperor.jpg" width="300" height="330">
+			<div id="questions">
+				<form class="question">
+					<p class="buttons">
+						<button class="restart">Restart</button>
+					</p>
+				</form>
+			</div>
 		</script>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
