@@ -58,11 +58,65 @@
 	<script>
 		(dataOutput = function() {
 			data = [
-					{_id: 0, qtext: "What hat color is taboo in China?", answers: [{formNum: 0, label: "Green（绿色)"}, {formNum: 0, label: "Yellow（黄色)"}, {formNum: 0, label:"Red（红色)"}, {formNum: 0, label: "Purple（紫色)"}], solution: "Green（绿色)"},
-					{_id: 1, qtext: "The Huangpu (黄浦）river runs through which major Chinese city?", answers: [{formNum: 1, label: "Beijing (北京)"}, {formNum: 1, label: "Chengdu（成都)"}, {formNum: 1, label: "Shanghai（上海)"}, {formNum: 1, label: "Guangzhou（广洲)"}], solution: "Shanghai（上海)"},
-					{_id: 2, qtext: "The Giant Panda's current natural habitat is found mainly in which province?", answers: [{formNum: 2, label: "Fujian (福建)"}, {formNum: 2, label: "Anhui（安徽)"}, {formNum: 2, label: "Sichuan (四川)"},{formNum: 2, label: "Hunan（湖南)"}], solution: "Sichuan (四川)"},
-					{_id: 3, qtext: "Which is a famous Shanghainese dish?", answers: [{formNum: 3, label: "Xiao Long Bao（小龙包)"},{formNum: 3, label: "Man Tou（馒头)"}, {formNum: 3, label: "Ma Po Dou Fu（麻婆豆腐)"}, {formNum: 3, label: "Ma La Tu Tou（麻辣兔头)"}], solution: "Xiao Long Bao（小龙包)"},
-					{_id: 4, qtext: "Which is a Chinese city famous for winter ice sculptures?", answers: [{formNum: 4, label: "Hong Kong（香港)"}, {formNum: 4, label: "Harbin（哈尔滨)"},{formNum: 4, label: "Beijing（北京)"}, {formNum: 4, label: "Fuzhou（福州)"}], solution: "Harbin（哈尔滨)"}
+					{
+					_id: 0, 
+					qtext: "What hat color is taboo in China?", 
+					answers: [
+					{formNum: 0, label: "Green（绿色)"}, 
+					{formNum: 0, label: "Yellow（黄色)"}, 
+					{formNum: 0, label:"Red（红色)"}, 
+					{formNum: 0, label: "Purple（紫色)"}
+							], 
+					solution: "Green（绿色)"
+					},
+
+					{
+					_id: 1, 
+					qtext: "The Huangpu (黄浦）river runs through which major Chinese city?", 
+					answers: [
+					{formNum: 1, label: "Beijing (北京)"}, 
+					{formNum: 1, label: "Chengdu（成都)"}, 
+					{formNum: 1, label: "Shanghai（上海)"}, 
+					{formNum: 1, label: "Guangzhou（广洲)"}
+							], 
+					solution: "Shanghai（上海)"
+					},
+
+					{
+					_id: 2, 
+					qtext: "The Giant Panda's current natural habitat is found mainly in which province?",
+				    answers: [
+				    {formNum: 2, label: "Fujian (福建)"}, 
+				    {formNum: 2, label: "Anhui（安徽)"}, 
+					{formNum: 2, label: "Sichuan (四川)"},
+					{formNum: 2, label: "Hunan（湖南)"}
+							], 
+					solution: "Sichuan (四川)"
+					},
+
+					{
+					_id: 3, 
+					qtext: "Which is a famous Shanghainese dish?", 
+					answers: [
+					{formNum: 3, label: "Xiao Long Bao（小龙包)"},
+					{formNum: 3, label: "Man Tou（馒头)"}, 
+					{formNum: 3, label: "Ma Po Dou Fu（麻婆豆腐)"}, 
+					{formNum: 3, label: "Ma La Tu Tou（麻辣兔头)"}
+							], 
+					solution: "Xiao Long Bao（小龙包)"
+					},
+
+					{
+					_id: 4, 
+					qtext: "Which is a Chinese city famous for winter ice sculptures?", 
+					answers: [
+					{formNum: 4, label: "Hong Kong（香港)"}, 
+					{formNum: 4, label: "Harbin（哈尔滨)"},
+					{formNum: 4, label: "Beijing（北京)"}, 
+					{formNum: 4, label: "Fuzhou（福州)"}
+							], 
+					solution: "Harbin（哈尔滨)"
+					}
 					];
 
 			var template = Handlebars.compile( $('#questions-template').html() );
