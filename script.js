@@ -16,12 +16,8 @@ $(document).ready(function() {
 	for (var i = 0; i < data.length; i++) {
 		$('#' + i).hide();
 		solutions.push(data[i].solution);
-		if ($('input').closest('form') == data[i].answers) {
-			$('input').attr('id', i);
-			}
 		}
 	$('#' + counter).show();
-	console.log(answers);
 
 	$('.next').on('click', function(e) {
 		e.preventDefault();
@@ -32,8 +28,6 @@ $(document).ready(function() {
 		if (userAnswer == solutions[counter]) {
 			correct += 1;
 		}
-		console.log(correct);
-		console.log(counter);
 
 		correctCounter(correct);
 		if (counter == data.length - 1) {
