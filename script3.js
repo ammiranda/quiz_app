@@ -21,11 +21,12 @@ $(document).ready(function() {
 
 	$('.next').on('click', function(e) {
 		e.preventDefault();
+		console.log($('input:checked').val());
 		if (answers == []) {
 			answers.push($('input:checked').val());
 		}
 		else {
-		answers.push($('input:checked').val().next());
+			answers.push($('input:checked').val());
 		}
 		console.log(counter);
 		console.log(answers);
