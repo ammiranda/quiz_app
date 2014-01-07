@@ -11,15 +11,18 @@ $(document).ready(function() {
 	var counter = 0;  // Initializes the current question counter
 	var solutions = [];
 	var answers = [];
+
 	correctCounter(correct);
-	console.log($('input:visible').closest('form'));
+
 	for (var i = 0; i < data.length; i++) {
 		$('#' + i).hide();
 		solutions.push(data[i].solution);
 		}
+
 	$('#' + counter).show();
 
-	$('.next').on('click', function(e) {
+	$('.next').on('click', function(e) { // Function that fires on click of the submit button
+
 		e.preventDefault();
 
 		var questionNumber = $(this).closest('form').attr('id');
@@ -30,7 +33,7 @@ $(document).ready(function() {
 		} 
 		else {
 
-			if (userAnswer == solutions[counter]) {
+			if (userAnswer == solutions[counter]) { // Checks if the selected answer matches the solution at the matching index
 				correct += 1;
 			}
 
