@@ -1,131 +1,143 @@
 <!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="quiz_app.css" type="text/css">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="main.css" type="text/css">
 <link rel="shortcut icon" href="http://www.themaninchina.com/images/chinese_characters/graphic%20zhong%20stroke%204.gif">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<script type="text/javascript" src="script.js"></script>
 <title>China Quiz!</title>
 </head>
 <body>
-<div id="container">
-	<h1 id="quiz_title">
-		China Quiz
-	</h1>
-	<img src="china_flag_map.png" width="300" height="250">
-	<p id="quiz_descr">
-		Test your knowledge of China (中国)!<br> Answer these questions to the best of your ability.
-	</p>
-	<br>
-	<div id="questions">
-		<form id="question1">
-			<p class="question_text">What hat color is taboo in China?</p>
-			<br>
-			<label>
-			<input type="radio" name="1" value="Green">
-			Green（绿色）
-			</label>
-			<label>
-			<input type="radio" name="1" value="Yellow">
-			Yellow（黄色）
-			</label>
-			<label>
-			<input type="radio" name="1" value="Red">
-			Red（红色）
-			</label>
-			<label>
-			<input type="radio" name="1" value="Purple">
-			Purple（紫色）
-			</label>
-			<br>
-			<p class="buttons">
-				<button>Restart</button>
-				<button type="submit">Submit</button>
+<div id="container" class="col-lg-6 col-md-8 col-sm-12 col-lg-offset-3 col-md-offset-2">
+	<script id="questions-template" type="text/x-handlebars-template">
+		<h1 id="quiz_title">
+			China Quiz
+		</h1>
+		<p id="quiz_descr">
+			Test your knowledge of China (中国)!<br> Answer these questions to the best of your ability.
+		</p>
+		<img id="china_map" src="china_flag_map.png" width="300" height="250">	
+		<p id="scores"></p>
+		<br>
+		<div id="questions">
+		
+
+			{{#each this}}
+
+				<form id="{{{this._id}}}" class="question">
+				<p class="question_text">{{qtext}}</p>
+				<p class="pick_answer" style="display: none;">Please select an answer!</p>
+				<table>
+				{{#each answers}}
+					<tr>
+					<td>
+						<label>
+						<input type="radio" name="{{{formNum}}}" value="{{{label}}}">
+						{{label}}
+						</label>
+					</td>
+					</tr>
+				{{/each}}
+				</table>
+				<p class="buttons">
+					<button class="restart">Restart</button>
+					<button type="submit" class="next">Submit</button>
+				</p>
+				</form>
+			{{/each}}
+		</script>
+		<script id="ultimateWin" type="text/x-handlebars-template">
+			<h1 id="quiz_title">
+				You are the Huang Di!
+			</h1>
+			<p id="quiz_descr">
+				Gong xi Gong xi! (恭喜恭喜)
 			</p>
-		</form>
-		<form id="question2" style="display: none;">
-			<p class="question_text">The Huangpu river runs through which major Chinese city?</p>
-			<br>
-			<label>
-			<input type="radio" name="2" value="Beijing">
-			Beijing (北京）
-			</label>
-			<label>
-			<input type="radio" name="2" value="Chengdu">
-			Chengdu（成都）
-			</label>
-			<label>
-			<input type="radio" name="2" value="Shanghai">
-			Shanghai（上海）
-			</label>
-			<label>
-			<input type="radio" name="2" value="Guangzhou">
-			Guangzhou（广洲）
-			</label>
-		</form>	
-		<form id="question3" style="display: none;">
-			<p class="question_text">What is the currency of the Macau SAR?</p>
-			<br>
-			<label>
-			<input type="radio" name="3" value="Peso">
-			Peso（比索）
-			</label>
-			<label>
-			<input type="radio" name="3" value="Hong Kong Dollar">
-			Hong Kong Dollar（港元）
-			</label>
-			<label>
-			<input type="radio" name="3" value="Pataca">
-			Pataca（澳门元）
-			</label>
-			<label>
-			<input type="radio" name="3" value="Renminbi">
-			Renminbi（人民币）
-			</label>
-		</form>
-		<form id="question4" style="display: none;">
-			<p class="question_text">Which is a famous Shanghainese dish?</p>
-			<br>
-			<label>
-			<input type="radio" name="4" value="Xiao Long Bao">
-			Xiao Long Bao（小龙包）
-			</label>
-			<label>
-			<input type="radio" name="4" value="Man Tou">
-			Man Tou（馒头）
-			</label>
-			<label>
-			<input type="radio" name="4" value="Ma Po Dou Fu">
-			Ma Po Dou Fu（麻婆豆腐）
-			</label>
-			<label>
-			<input type="radio" name="4" value="Ma La Tu Tou">
-			Ma La Tu Tou（麻辣兔头）
-			</label>
-		</form>
-		<form id="question5" style="display: none;">
-			<p class="question_text">Which is a Chinese city famous for winter ice sculptures?</p>
-			<br>
-			<label>
-			<input type="radio" name="5" value="Hong Kong">
-			Hong Kong（香港）
-			</label>
-			<label>
-			<input type="radio" name="5" value="Harbin">
-			Harbin（哈尔滨）
-			</label>
-			<label>
-			<input type="radio" name="5" value="Beijing">
-			Beijing（北京）
-			</label>
-			<label>
-			<input type="radio" name="5" value="Lhasa">
-			Lhasa（拉萨）
-			</label>
-		</form>
+			<img  id="china_map" src="yellow-emperor.jpg" width="300" height="330">
+			<div id="questions">
+				<form class="question">
+					<p class="buttons">
+						<button class="restart">Restart</button>
+					</p>
+				</form>
+			</div>
+		</script>
 	</div>
-	
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.2.1/handlebars.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="script.js"></script>
+	<script>
+		(dataOutput = function() {
+			data = [
+					{
+					_id: 0, 
+					qtext: "What hat color is taboo in China?", 
+					answers: [
+					{formNum: 0, label: "Green（绿色)"}, 
+					{formNum: 0, label: "Yellow（黄色)"}, 
+					{formNum: 0, label:"Red（红色)"}, 
+					{formNum: 0, label: "Purple（紫色)"}
+							], 
+					solution: "Green（绿色)"
+					},
+
+					{
+					_id: 1, 
+					qtext: "The Huangpu (黄浦）river runs through which major Chinese city?", 
+					answers: [
+					{formNum: 1, label: "Beijing (北京)"}, 
+					{formNum: 1, label: "Chengdu（成都)"}, 
+					{formNum: 1, label: "Shanghai（上海)"}, 
+					{formNum: 1, label: "Guangzhou（广洲)"}
+							], 
+					solution: "Shanghai（上海)"
+					},
+
+					{
+					_id: 2, 
+					qtext: "The Giant Panda's current natural habitat is found mainly in which province?",
+				    answers: [
+				    {formNum: 2, label: "Fujian (福建)"}, 
+				    {formNum: 2, label: "Anhui（安徽)"}, 
+					{formNum: 2, label: "Sichuan (四川)"},
+					{formNum: 2, label: "Hunan（湖南)"}
+							], 
+					solution: "Sichuan (四川)"
+					},
+
+					{
+					_id: 3, 
+					qtext: "Which is a famous Shanghainese dish?", 
+					answers: [
+					{formNum: 3, label: "Xiao Long Bao（小龙包)"},
+					{formNum: 3, label: "Man Tou（馒头)"}, 
+					{formNum: 3, label: "Ma Po Dou Fu（麻婆豆腐)"}, 
+					{formNum: 3, label: "Ma La Tu Tou（麻辣兔头)"}
+							], 
+					solution: "Xiao Long Bao（小龙包)"
+					},
+
+					{
+					_id: 4, 
+					qtext: "Which is a Chinese city famous for winter ice sculptures?", 
+					answers: [
+					{formNum: 4, label: "Hong Kong（香港)"}, 
+					{formNum: 4, label: "Harbin（哈尔滨)"},
+					{formNum: 4, label: "Beijing（北京)"}, 
+					{formNum: 4, label: "Fuzhou（福州)"}
+							], 
+					solution: "Harbin（哈尔滨)"
+					}
+					];
+
+			var template = Handlebars.compile( $('#questions-template').html() );
+
+			console.log(template(data));
+
+			$('#container').append( template(data) );
+			return data;
+		})();
+	</script>
 </body>
 </html>
