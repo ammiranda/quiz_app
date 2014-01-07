@@ -22,12 +22,7 @@ $(document).ready(function() {
 	$('.next').on('click', function(e) {
 		e.preventDefault();
 		console.log($('input:checked').val());
-		if (answers == []) {
-			answers.push($('input:checked').val());
-		}
-		else {
-			answers.push($('input:checked').val());
-		}
+		answers.push($('input:checked').val());
 		console.log(counter);
 		console.log(answers);
 		if (solutions[counter] == answers[counter]) {
@@ -35,8 +30,20 @@ $(document).ready(function() {
 			console.log("correct added");
 		}
 		correctCounter(correct);
-		if (correct == data.length && counter == data.length){
-			$('#container').append(template());
+		if (counter == data.length) {
+			var percentCorrect = Math.ceil( (correct / counter) * 100);
+			if (percentCorrect >= 100){
+				$('#container').append(template());
+			}
+			else if (percentCorrect < 100 && percentCorrect >= 80) {
+				alert("not bad");
+			}
+			else if (percentCorrect < 80 && percentCorrect >= 40) {
+				alert("meh");
+			}
+			else {
+				alert("study more!");
+			}
 		}
 		console.log("It worked!");
 		counter++;
