@@ -82,8 +82,8 @@ img {
 	}
 #questions {
 	border: solid 4px black;
-	width: 400px;
 	margin: 0 auto;
+	margin-bottom: 2em;
 	display: block;
 	padding: 10px;
 	background-color: #FADA5E;
