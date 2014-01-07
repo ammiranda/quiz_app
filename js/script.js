@@ -7,8 +7,8 @@ var ult_source = $('#ultimateWin').html();
 var ult_template = Handlebars.compile(ult_source);
 
 $(document).ready(function() {
-	var correct = 0;
-	var counter = 0;
+	var correct = 0;  // Initializes the correct responses counter
+	var counter = 0;  // Initializes the current question counter
 	var solutions = [];
 	var answers = [];
 	correctCounter(correct);
@@ -25,29 +25,35 @@ $(document).ready(function() {
 		var questionNumber = $(this).closest('form').attr('id');
 		var userAnswer = $('input[name=' + questionNumber + ']:radio:checked').val();
 
-		if (userAnswer == solutions[counter]) {
-			correct += 1;
-		}
+		if (!userAnswer) { // Prevents user progress if question is unanswered
+			alert("Pick an answer!");
+		} 
+		else {
 
-		correctCounter(correct);
-		if (counter == data.length - 1) {
-			var percentCorrect = Math.ceil( (correct / (counter + 1)) * 100);
-			$('#container').empty();
-			if (percentCorrect >= 100){
-				$('#container').append(ult_template());
+			if (userAnswer == solutions[counter]) {
+				correct += 1;
 			}
-			else if (percentCorrect < 100 && percentCorrect >= 80) {
-				alert("not bad");
+
+			correctCounter(correct);
+			if (counter == data.length - 1) { // Checks if all questions have been answered
+				var percentCorrect = Math.ceil( (correct / (counter + 1)) * 100); // Calculates percent correct of questions answered
+				$('#container').empty();
+				if (percentCorrect >= 100){
+					$('#container').append(ult_template());
+				}
+				else if (percentCorrect < 100 && percentCorrect >= 80) {
+					alert("not bad");
+				}
+				else if (percentCorrect < 80 && percentCorrect >= 60) {
+					alert("meh");
+				}
+				else {
+					alert("study more!");
+				}
 			}
-			else if (percentCorrect < 80 && percentCorrect >= 60) {
-				alert("meh");
-			}
-			else {
-				alert("study more!");
-			}
-		}
-		counter++;
-		$('#' + counter).show().siblings('form').hide();
+			counter++;
+			$('#' + counter).show().siblings('form').hide();  // Shows the current selected question while hiding the others
+		}	
 	})
 
 	
