@@ -27,17 +27,18 @@ $(document).ready(function() {
 		e.preventDefault();
 		console.log(this);
 		var questionNumber = $(this).closest('form').attr('id');
+		var userAnswer = $('input[name=' + questionNumber + ']:radio:checked').val();
 		console.log(questionNumber);
+		console.log(userAnswer);
 		console.log($('input:checked').closest('form').attr('id'));
-		answers.push($('input:checked').val());
 		console.log(counter);
 		console.log(answers);
-		if (solutions[counter] == answers[counter]) {
+		if (userAnswer == solutions[counter]) {
 			correct += 1;
 			console.log("correct added");
 		}
 		correctCounter(correct);
-		if (counter == data.length) {
+		if (counter == data.length - 1) {
 			var percentCorrect = Math.ceil( (correct / counter) * 100);
 			if (percentCorrect >= 100){
 				$('#container').append(template());
