@@ -68,7 +68,7 @@
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<script src="js/script.js"></script>
 	<script>
-		(dataOutput = function() {
+		var dataOutput = function() {
 			data = [
 					{
 					_id: 0, 
@@ -137,7 +137,7 @@
 
 			$('#container').append( template(data) );
 			return data;
-		})();
+		};
 	</script>
 </body>
 </html>

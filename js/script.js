@@ -23,6 +23,8 @@ var ult_template = Handlebars.compile(ult_source);
 
 $(document).ready(function() {
 
+	dataOutput();
+
 	quizInitialization();
 
 	$('.restart').on('click', function(e) {  // Restarts the quiz on the click of the restart button
